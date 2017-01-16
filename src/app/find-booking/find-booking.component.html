@@ -1,0 +1,19 @@
+<form novalidate (ngSubmit)="onSubmit(bookings)" [formGroup]="bookings">
+  <fieldset>
+    <div class="form-group" >
+      <label class="control-label" >Booking code</label>
+      <input type="text" class="form-control" formControlName="code" />
+      <span class="error"  *ngIf="bookings.get('code').touched && bookings.get('code').hasError('required')">Booking code is required.</span>
+      <span class="error"  *ngIf="bookings.get('code').touched && (bookings.get('code').hasError('minlength') || bookings.get('code').hasError('maxlength'))">Please enter a valid booking code</span>
+    </div>
+    <div class="form-group" >
+      <label class="control-label" >Family name</label>
+      <input type="text" class="form-control" formControlName="lastName"/>
+      <span class="error" *ngIf="bookings.get('lastName').touched && bookings.get('lastName').hasError('required')">Family name is required.</span>
+      <span class="error" *ngIf="bookings.get('lastName').touched && bookings.get('lastName').hasError('minlength')">Family name should be atleast two characters.</span>
+    </div>
+    <button type="button"  class="btn  btn-block submit-btn" [disabled]="bookings.invalid">
+      Retrieve booking
+    </button>
+  </fieldset>
+</form>
