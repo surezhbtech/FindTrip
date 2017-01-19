@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { FindBookingComponent } from './find-booking/find-booking.component';
 import { ErrorMessageComponent } from './error-message/error-message.component';
+import { Findtrip } from './findtrip.service';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ErrorMessageComponent } from './error-message/error-message.component';
     ReactiveFormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [Findtrip],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

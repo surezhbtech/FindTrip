@@ -4,7 +4,7 @@ import { ValidationService } from './validation.service';
 
 @Component({
   selector: 'app-error-message',
-  template: `<span class="error" *ngIf="errorMessage !== null">{{errorMessage}}</span>`,
+  template: `<span aria-live="assertive" class="error" *ngIf="errorMessage !== null">{{errorMessage}}</span>`,
   styles: [`
         .error{
             color: #d40504;
@@ -12,10 +12,13 @@ import { ValidationService } from './validation.service';
 })
 export class ErrorMessageComponent implements OnInit {
   @Input() control: FormControl;
-  constructor() { }
+
+  constructor() {
+  }
 
   ngOnInit() {
   }
+
   get errorMessage() {
     for (let propertyName in this.control.errors) {
       if (this.control.errors.hasOwnProperty(propertyName) && this.control.touched) {
