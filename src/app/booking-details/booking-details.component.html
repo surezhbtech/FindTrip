@@ -1,0 +1,18 @@
+<h1>{{heading}}</h1>
+<div *ngIf="bookingDetails">
+  <div class="booking-code">Booking Reference: {{bookingDetails.bookingCode}}</div>
+  <h2 class="booking-display-name">{{bookingDetails.passengers.title.name}}.{{bookingDetails.passengers.firstName}} {{bookingDetails.passengers.lastName}}</h2>
+  <div>
+    <div class="booking-orgin-destination">{{bookingDetails.itinerary.connections[0].origin.IATACode}}</div>
+    <div class="booking-orgin-destination">{{bookingDetails.itinerary.connections[0].destination.IATACode}}</div>
+    <div style="clear: both"></div>
+  </div>
+  <h2 class="booking-display-name">Contact Information</h2>
+  <div>
+    Email: {{bookingDetails.contactDetails[0].address}}
+  </div>
+  <div>
+    Phone: +031 649668544
+  </div>
+</div>
+

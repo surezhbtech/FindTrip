@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Bookings, BookingDetails } from '../booking.interface';
 import { ValidationService } from '../error-message/validation.service';
 import { Findtrip } from '../findtrip.service';
@@ -7,6 +8,8 @@ import { Findtrip } from '../findtrip.service';
 @Component({
   selector: 'app-find-booking',
   template: `
+        <h1>{{heading}}</h1>
+        <h2>{{heading2}}</h2>
         <form novalidate (ngSubmit)="onSubmit(bookings)" [formGroup]="bookings">
           <fieldset>
             <div class="form-group" >
@@ -26,19 +29,20 @@ import { Findtrip } from '../findtrip.service';
         </form>`
 })
 export class FindBookingComponent implements OnInit {
-  bookings: FormGroup;
+  heading = 'Retrieve Your Booking ';
+  heading2 = 'You can find your booking by filling out your family name and the booking code in your booking confirmation.';  bookings: FormGroup;
   bookingDetails: BookingDetails;
 
-  constructor(private findtrip: Findtrip) {
+  constructor(private findtrip: Findtrip,private router: Router) {
   }
 
   ngOnInit() {
     this.bookings = new FormGroup({
-      code: new FormControl('', [Validators.required,
+      code: new FormControl('PZIGZ3', [Validators.required,
         Validators.minLength(5),
         Validators.maxLength(6),
         ValidationService.bookingCodeValidator]),
-      lastName: new FormControl('', [Validators.required,
+      lastName: new FormControl('HESP', [Validators.required,
         Validators.minLength(2),
         Validators.maxLength(30),
         ValidationService.nameValidator])
@@ -46,14 +50,8 @@ export class FindBookingComponent implements OnInit {
   }
 
   onSubmit({value, valid}: {value: Bookings, valid: boolean}) {
-    console.log(value, valid);
-    this.findtrip.getTrip().subscribe(
-      bookingDetails => {
-        this.bookingDetails = bookingDetails;
-        console.log(this.bookingDetails.passengers);
-      },
-      err => {
-        console.log(err);
-      });
+    if(valid){
+      this.router.navigate(['/bookingdetails', value.code, value.lastName ]);
+    }
   }
 }

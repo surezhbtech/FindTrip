@@ -138,6 +138,3 @@ export interface BookingDetails {
   itinerary: Itinerary;
   passengers: Passengers;
 }
-
-
-
