@@ -3,7 +3,6 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Bookings, BookingDetails } from '../booking.interface';
 import { ValidationService } from '../error-message/validation.service';
-import { Findtrip } from '../findtrip.service';
 
 @Component({
   selector: 'app-find-booking',
@@ -30,15 +29,14 @@ import { Findtrip } from '../findtrip.service';
 })
 export class FindBookingComponent implements OnInit {
   heading = 'Retrieve Your Booking ';
-  heading2 = 'You can find your booking by filling out your family name and the booking code in your booking confirmation.';  bookings: FormGroup;
-  bookingDetails: BookingDetails;
-
-  constructor(private findtrip: Findtrip,private router: Router) {
+  heading2 = 'You can find your booking by filling out your family name and the booking code in your booking confirmation.';
+  bookings: FormGroup;
+  constructor(private router: Router) {
   }
 
   ngOnInit() {
     this.bookings = new FormGroup({
-      code: new FormControl('PZIGZ3', [Validators.required,
+      code: new FormControl('PZ1GZ3', [Validators.required,
         Validators.minLength(5),
         Validators.maxLength(6),
         ValidationService.bookingCodeValidator]),
