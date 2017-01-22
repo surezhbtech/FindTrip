@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { ValidationService } from './validation.service';
+import { ValidationService } from '../booking.validator';
 
 @Component({
   selector: 'app-error-message',

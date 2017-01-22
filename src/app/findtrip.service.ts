@@ -14,7 +14,7 @@ export class Findtrip {
   constructor(private http: Http) {
   }
 
-  getTrip(code: string, lastname: string): Observable<BookingDetails> {
+  getTrip(bookingcode: string, lastname: string): Observable<BookingDetails> {
     return this.http.get(this.apiUrl)
       .map((res: Response) => res.json())
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));

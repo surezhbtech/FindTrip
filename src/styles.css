@@ -49,21 +49,8 @@ h1{
     text-transform: uppercase;
 }
 h2{
-    font-family: ExcellenceRegular;
-    font-size: 16px;
-    color: #003145;
-    text-align: left;
-}
-.control-label{
-    font-family: ExcellenceMedium;
-    color: #003145;
-    font-size: 16px;
-}
-.submit-btn{
-    background: #d40504;
-    width: inherit;
-    margin: 10px auto;
-    color: #ffffff;
-    font-family: ExcellenceThin;
-    font-size: 18px;
+  font-family: ExcellenceRegular;
+  font-size: 16px;
+  color: #003145;
+  text-align: left;
 }

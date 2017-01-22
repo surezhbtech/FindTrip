@@ -1,0 +1,13 @@
+.control-label{
+  font-family: ExcellenceMedium;
+  color: #003145;
+  font-size: 16px;
+}
+.submit-btn{
+  background: #d40504;
+  width: inherit;
+  margin: 10px auto;
+  color: #ffffff;
+  font-family: ExcellenceThin;
+  font-size: 18px;
+}

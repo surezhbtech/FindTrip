@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Bookings, BookingDetails } from '../booking.interface';
-import { ValidationService } from '../error-message/validation.service';
+import { Bookings } from '../booking.interface';
+import { ValidationService } from '../booking.validator';
 
 @Component({
   selector: 'app-find-booking',

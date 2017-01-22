@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { FindBookingComponent } from './find-booking/find-booking.component';
 
 @Component({
   selector: 'app-root',
