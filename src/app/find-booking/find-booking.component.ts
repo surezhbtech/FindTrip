@@ -6,26 +6,8 @@ import { ValidationService } from '../error-message/validation.service';
 
 @Component({
   selector: 'app-find-booking',
-  template: `
-        <h1>{{heading}}</h1>
-        <h2>{{heading2}}</h2>
-        <form novalidate (ngSubmit)="onSubmit(bookings)" [formGroup]="bookings">
-          <fieldset>
-            <div class="form-group" >
-              <label class="control-label" >Booking code</label>
-              <input type="text" class="form-control" id="bookingcode" formControlName="code" />
-              <app-error-message [control]="bookings.controls.code"></app-error-message>
-            </div>
-            <div class="form-group" >
-              <label class="control-label" >Family name</label>
-              <input type="text" class="form-control" id="lastname" formControlName="lastName"/>
-              <app-error-message [control]="bookings.controls.lastName"></app-error-message>
-            </div>
-            <button type="submit" class="btn  btn-block submit-btn" [disabled]="bookings.invalid">
-              Retrieve booking
-            </button>
-          </fieldset>
-        </form>`
+  templateUrl: './find-booking.component.html',
+  styleUrls: ['./find-booking.component.css']
 })
 export class FindBookingComponent implements OnInit {
   heading = 'Retrieve Your Booking ';
@@ -36,7 +18,7 @@ export class FindBookingComponent implements OnInit {
 
   ngOnInit() {
     this.bookings = new FormGroup({
-      code: new FormControl('PZ1GZ3', [Validators.required,
+      code: new FormControl('PZ6GZ3', [Validators.required,
         Validators.minLength(5),
         Validators.maxLength(6),
         ValidationService.bookingCodeValidator]),
@@ -48,7 +30,7 @@ export class FindBookingComponent implements OnInit {
   }
 
   onSubmit({value, valid}: {value: Bookings, valid: boolean}) {
-    if(valid){
+    if (valid) {
       this.router.navigate(['/bookingdetails', value.code, value.lastName ]);
     }
   }

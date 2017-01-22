@@ -30,7 +30,8 @@ import { BookingDetailsComponent } from './booking-details/booking-details.compo
         path: '',
         redirectTo: '/findtrip',
         pathMatch: 'full'
-      },{
+      },
+      {
         path: 'bookingdetails/:code/:lastname',
         component: BookingDetailsComponent
       },

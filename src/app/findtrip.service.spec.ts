@@ -59,16 +59,16 @@ describe('Http-FindtripService (mockBackend)', () => {
     beforeEach(inject([Http, XHRBackend], (http: Http, be: MockBackend) => {
       backend = be;
       service = new FindtripService(http);
-      let options = new ResponseOptions({status: 200, body: {"bookingCode": "ABCDE"}});
+      let options = new ResponseOptions({status: 200, body: { 'bookingCode': 'ABCDE' }});
       response = new Response(options);
     }));
 
     it('should have expected fake trip data (Observable.do)', async(inject([], () => {
       backend.connections.subscribe((c: MockConnection) => c.mockRespond(response));
 
-      service.getTrip('sdsdf','sf')
+      service.getTrip('sdsdf', 'sf')
         .do(res => {
-          expect(res.bookingCode).toBe("ABCDE",
+          expect(res.bookingCode).toBe('ABCDE',
             'should have expected booking code ABCDE');
         })
         .toPromise();

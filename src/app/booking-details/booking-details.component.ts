@@ -30,9 +30,8 @@ export class BookingDetailsComponent implements OnInit {
           err => {
             console.log(err);
           });
-      }
-      else {
-        this.router.navigate(['/findtrip'])
+      } else {
+        this.router.navigate(['/findtrip']);
       }
     });
   }
